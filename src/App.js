@@ -48,7 +48,7 @@ function App() {
             </Button>
           </Field>
           <Field>
-            <Input value={count} type="number" onChange={(e) => setCount(e.target.value)} />
+            <Input value={count} type="number" onChange={(e) => setCount(Number(e.target.value))} />
           </Field>
           <div style={{ width: "200px" }}>
             <MenuContainer>

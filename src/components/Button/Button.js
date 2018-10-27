@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import useMouseInteractions from '../../hooks/useMouseInteractions';
-import useFocus from '../../hooks/useFocus';
+import useFocus from '../../hooks/useFocusInteractions';
 import { ThemeContext } from '../../theme';
 
 import stylesheet from './Button.stylesheet.js';
