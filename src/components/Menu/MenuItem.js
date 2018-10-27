@@ -2,23 +2,16 @@ import React, { useContext } from 'react';
 
 import useMouseInteractions from '../../hooks/useMouseInteractions';
 import useFocus from '../../hooks/useFocus';
+
+import stylesheet from './MenuItem.stylesheet.js';
 import { ThemeContext } from '../../theme';
 
-import stylesheet from './Button.stylesheet.js';
-
-/**
- *
- *  - Maintains internal presentational state
- *  - Presentational state overridable by props
- *  - Calls passed-in callbacks (onMouseEnter, onFocus, etc)
- *  - Allows arbitrary attributes through to button (but excludes presentational state overrides)
- */
-export default function Button(props) {
+export default function MenuItem(props) {
   const {
     hasHover: _hasHover,
     hasFocus: _hasFocus,
     isPressed: _isPressed,
-    children,
+    label,
     ...otherProps
   } = props;
   const { hasHover, isPressed, ...otherMouseInteractionProps } = useMouseInteractions(props);
@@ -28,13 +21,14 @@ export default function Button(props) {
   const styles = stylesheet({ hasHover, hasFocus, isPressed }, theme);
 
   return (
-    <button
-      style={styles.button}
+    <div
+      tabIndex="0"
+      style={styles.container}
       {...otherProps}
       {...otherMouseInteractionProps}
       {...otherFocusProps}
     >
-      {children}
-    </button>
+      <span style={styles.label}>{label}</span>
+    </div>
   )
 }
