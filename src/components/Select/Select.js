@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import Input from '../Input';
-import { MenuContainer, MenuItem } from '../Menu';
+import Menu from '../Menu';
 import useClickAwayCallback from '../../hooks/useClickAwayCallback';
 import stylesheet from './Select.stylesheet.js';
 
@@ -24,16 +24,11 @@ export default function Select(props) {
       />
       {open
         ? <div style={styles.menu}>
-            <MenuContainer>
-              {options.map(option => (
-                <MenuItem
-                  key={option.label}
-                  label={option.label}
-                  isSelected={option.value === value}
-                  onClick={() => onChange(option)}
-                />
-              ))}
-            </MenuContainer>
+            <Menu
+              items={options}
+              selectedItem={selectedOption}
+              onSelectionChange={o => onChange(o)}
+            />
           </div>
         : null}
     </div>

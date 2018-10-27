@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button';
-import { MenuItem, MenuContainer } from './components/Menu';
 import Input from './components/Input';
 import Select from './components/Select';
 
@@ -21,7 +19,7 @@ function App() {
           <p>Component interactions with hooks</p>
         </header>
         <div className="App-body">
-          <p>Clicked {count} times.</p>
+          <p>The count is {count}</p>
           <Field>
             <Button
               data-foo="bar"
