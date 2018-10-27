@@ -3,6 +3,11 @@ import logo from './logo.svg';
 import './App.css';
 import Button from './components/Button';
 import { MenuItem, MenuContainer } from './components/Menu';
+import Input from './components/Input';
+
+function Field({ children }) {
+  return <div style={{paddingBottom: "24px", display: "flex", width: "200px"}}>{children}</div>
+}
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +20,7 @@ function App() {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <p>Clicked {count} times.</p>
-          <div style={{display: "flex"}}>
+          <Field>
             <Button
               data-foo="bar"
               onClick={() => setCount(count - 1)}
@@ -41,7 +46,10 @@ function App() {
             >
               Increment
             </Button>
-          </div>
+          </Field>
+          <Field>
+            <Input value={count} type="number" onChange={(e) => setCount(e.target.value)} />
+          </Field>
           <div style={{ width: "200px" }}>
             <MenuContainer>
               <MenuItem label="One" onClick={() => setCount(1)} />
