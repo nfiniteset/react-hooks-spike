@@ -11,6 +11,7 @@ export default function MenuItem(props) {
     hasHover: _hasHover,
     hasFocus: _hasFocus,
     isPressed: _isPressed,
+    isSelected,
     label,
     ...otherProps
   } = props;
@@ -18,7 +19,7 @@ export default function MenuItem(props) {
   const { hasFocus, ...otherFocusProps } = useFocus(props);
   const theme = useContext(ThemeContext);
 
-  const styles = stylesheet({ hasHover, hasFocus, isPressed }, theme);
+  const styles = stylesheet({ hasHover, hasFocus, isPressed, isSelected }, theme);
 
   return (
     <div
@@ -29,6 +30,7 @@ export default function MenuItem(props) {
       {...otherFocusProps}
     >
       <span style={styles.label}>{label}</span>
+      <span style={styles.selection}>✔︎</span>
     </div>
   )
 }
