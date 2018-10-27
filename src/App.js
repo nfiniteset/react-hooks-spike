@@ -54,7 +54,7 @@ function App() {
             <Select
               placeholder="Select a count"
               value={count}
-              onChange={o => setCount(o.value)}
+              onChange={o => {setCount(o.value)}}
               options={[
                 { value: 1, label: "One" },
                 { value: 2, label: "Two" },
